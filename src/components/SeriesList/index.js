@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 
 const SeriesListItem = ({ series }) => (
-    <tr key={series.show.id}>
+    <tr>
         <td>{series.show.name}</td>
         <td>{series.show.rating.average == null ? 'N/A' : series.show.rating.average}</td>
         <td>{series.show.genres.join(', ')}</td>
@@ -32,7 +32,7 @@ const SeriesList = props => {
                 </thead>
                 <tbody>
                     {props.list.map(series => (
-                        <SeriesListItem series={series}/>
+                        <SeriesListItem series={series} key={series.show.id}/>
                     ))}
                 </tbody>
             </table>
