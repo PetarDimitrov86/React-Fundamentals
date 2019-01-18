@@ -11,7 +11,9 @@ const SeriesListItem = ({ series }) => (
             <a href={series.show.officialSite}>{series.show.officialSite}</a>                        
         </td>
         <td>
-            <img src={series.show.image == null ? '' : series.show.image.medium}></img>
+            <img 
+            src={series.show.image == null ? '' : series.show.image.medium}
+            alt='series poster image'></img>
         </td>
     </tr>
 )
