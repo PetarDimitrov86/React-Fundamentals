@@ -1,6 +1,21 @@
 import React from 'react';
 import './index.css';
 
+const SeriesListItem = ({ series }) => (
+    <tr key={series.show.id}>
+        <td>{series.show.name}</td>
+        <td>{series.show.rating.average == null ? 'N/A' : series.show.rating.average}</td>
+        <td>{series.show.genres.join(', ')}</td>
+        {/* <td>{series.show.summary.substring(0, 100)}</td> */}
+        <td>
+            <a href={series.show.officialSite}>{series.show.officialSite}</a>                        
+        </td>
+        <td>
+            <img src={series.show.image == null ? '' : series.show.image.medium}></img>
+        </td>
+    </tr>
+)
+
 const SeriesList = props => {
     return (
         <div>
@@ -17,18 +32,7 @@ const SeriesList = props => {
                 </thead>
                 <tbody>
                     {props.list.map(series => (
-                        <tr key={series.show.id}>
-                            <td>{series.show.name}</td>
-                            <td>{series.show.rating.average == null ? 'N/A' : series.show.rating.average}</td>
-                            <td>{series.show.genres.join(', ')}</td>
-                            {/* <td>{series.show.summary.substring(0, 100)}</td> */}
-                            <td>
-                                <a href={series.show.officialSite}>{series.show.officialSite}</a>                        
-                            </td>
-                            <td>
-                                <img src={series.show.image == null ? '' : series.show.image.medium}></img>
-                            </td>
-                        </tr>
+                        <SeriesListItem series={series}/>
                     ))}
                 </tbody>
             </table>
