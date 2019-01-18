@@ -1,9 +1,14 @@
 import React from 'react';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 const SeriesListItem = ({ series }) => (
     <tr>
-        <td>{series.show.name}</td>
+        <td>
+            <Link to={`/series/${series.show.id}`}>
+                {series.show.name}
+            </Link>
+        </td>
         <td>{series.show.rating.average == null ? 'N/A' : series.show.rating.average}</td>
         <td>{series.show.genres.join(', ')}</td>
         {/* <td>{series.show.summary.substring(0, 100)}</td> */}
@@ -13,7 +18,7 @@ const SeriesListItem = ({ series }) => (
         <td>
             <img 
             src={series.show.image == null ? '' : series.show.image.medium}
-            alt='series poster image'></img>
+            alt='series poster'></img>
         </td>
     </tr>
 )

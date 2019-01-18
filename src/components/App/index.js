@@ -9,8 +9,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h3>TV Series List</h3>
-        </header>
         <Main />
+        </header>
       </div>
     );
   }
