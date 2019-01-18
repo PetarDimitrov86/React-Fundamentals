@@ -1,0 +1,7 @@
+.series-list td, .series-list th {
+    border: 1px solid black;
+}
+
+.series-list img {
+    width: 50%;
+}
